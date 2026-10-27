@@ -1,0 +1,11 @@
+{
+  "name": "tinycloud",
+  "version": "0.1.0",
+  "description": "Keep your personal records, like weight, workouts, goals and todos, in your own TinyCloud storage. Connects Gemini CLI to TinyCloud's hosted MCP server. You approve access on OpenKey.",
+  "mcpServers": {
+    "tinycloud": {
+      "httpUrl": "https://mcp.tinycloud.xyz/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
