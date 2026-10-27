@@ -1,6 +1,6 @@
 # TinyCloud for Gemini CLI
 
-TinyCloud keeps your personal records, like weight, workouts, goals and todos, in your own storage. This Gemini CLI extension connects Gemini CLI to TinyCloud's hosted MCP server.
+TinyCloud keeps your personal records, like weight, workouts, goals and todos, in your own storage. This Gemini CLI extension tells Gemini CLI how to set up and use TinyCloud through the TinyCloud CLI.
 
 ## Install
 
@@ -8,27 +8,18 @@ TinyCloud keeps your personal records, like weight, workouts, goals and todos, i
 gemini extensions install https://github.com/TinyCloudLabs/gemini-cli-tinycloud
 ```
 
-Start Gemini CLI, then sign in:
+Start Gemini CLI and ask:
 
-```text
-/mcp auth tinycloud
-```
-
-Your browser opens OpenKey. Sign in and approve. Then ask, for example:
-
-- "What personal apps do I already have in TinyCloud?"
+- "Set up TinyCloud for me."
 - "Log my weight: 80.5 kg today."
 
-The first time, a TinyCloud tool shows you an OpenKey link for access to your records. Open it, approve, and tell Gemini to continue.
-
-The sign-in needs a web browser on the same computer. It doesn't work over SSH or in a container without one.
+Gemini CLI follows <https://agents.tinycloud.xyz/connect>. It installs the pinned TinyCloud CLI and the `tc-apps` skill in a private folder, then shows you an OpenKey link. Open it, approve, and tell Gemini to continue.
 
 ## What it adds
 
-- One MCP server, `tinycloud`, at `https://mcp.tinycloud.xyz/mcp`. Gemini CLI finds the server's OAuth settings and registers itself, so there is no key or client ID to enter. It keeps the sign-in in `~/.gemini/mcp-oauth-tokens.json`.
-- `GEMINI.md`, a few lines for the model: use the TinyCloud tools for your records, never ask you for a password or other secret, and let you approve access on OpenKey.
+- `GEMINI.md`, a few lines for the model: set up through /connect's coding-agent route, use the `tc-apps` skill for your records, never ask you for a password or other secret, and let you approve access on OpenKey.
 
-It adds no commands, hooks or local programs.
+It adds no MCP server, commands or hooks. The setup itself installs the CLI and the skill; /connect's Undo section removes them.
 
 ## Update or remove it
 
